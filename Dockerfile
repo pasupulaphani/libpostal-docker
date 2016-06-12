@@ -1,4 +1,5 @@
-FROM nodesource/trusty:6.2.0
+# Inherit from Heroku's stack
+FROM heroku/cedar:14
 
 MAINTAINER Pearlshare "support@pearlshare.com"
 

@@ -33,6 +33,7 @@ RUN apt-get update && apt-get -qq update && apt-get install -y --force-yes \
 
 RUN git clone https://github.com/openvenues/libpostal $LIBPOSTAL_DIR
 WORKDIR $LIBPOSTAL_DIR
+RUN git checkout parser-data
 COPY ./build_libpostal.sh .
 RUN ./build_libpostal.sh
 ##############

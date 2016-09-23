@@ -13,7 +13,8 @@ ENV LIBPOSTAL_DATA_DIR  /opt/libpostal_data
 RUN apt-get update && apt-get -qq update && apt-get install -y --force-yes \
   curl \
   vim \
-  git
+  git \
+  tar
 ##############
 
 
@@ -36,3 +37,10 @@ WORKDIR $LIBPOSTAL_DIR
 COPY ./build_libpostal.sh .
 RUN ./build_libpostal.sh
 ##############
+
+# After typical install swap the address parser with the new one (https://github.com/openvenues/libpostal/issues/119#issuecomment-249030219)
+WORKDIR $LIBPOSTAL_DIR_DATA/libpostal
+RUN mv address_parser address_parser_old
+RUN wget https://libpostal.s3.amazonaws.com/mapzen_sample/parser_full.tar.gz .
+RUN tar -xvzf parser_full.tar.gz
+RUN ln -s parser_full address_parser

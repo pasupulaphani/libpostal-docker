@@ -39,8 +39,8 @@ RUN ./build_libpostal.sh
 ##############
 
 # After typical install swap the address parser with the new one (https://github.com/openvenues/libpostal/issues/119#issuecomment-249030219)
-WORKDIR $LIBPOSTAL_DIR_DATA/libpostal
+WORKDIR $LIBPOSTAL_DATA_DIR/libpostal
 RUN mv address_parser address_parser_old
-RUN wget https://libpostal.s3.amazonaws.com/mapzen_sample/parser_full.tar.gz .
+RUN wget https://libpostal.s3.amazonaws.com/mapzen_sample/parser_full.tar.gz
 RUN tar -xvzf parser_full.tar.gz
 RUN ln -s parser_full address_parser

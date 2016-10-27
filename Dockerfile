@@ -1,7 +1,7 @@
 # Inherit from Heroku's stack
 FROM heroku/cedar:14
 
-MAINTAINER Pearlshare "support@pearlshare.com"
+MAINTAINER Phaninder "hello@phaninder.com"
 
 ENV DEBIAN_FRONTEND     noninteractive
 ENV LIBPOSTAL_DIR       /opt/libpostal

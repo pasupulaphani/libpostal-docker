@@ -10,7 +10,13 @@ Suggested container resources:
 
 ## Getting started
 
-- Get latest from hub.docker.com
+- Build locally
+
+```
+docker build -t libpostal .
+```
+
+- (OR) Get latest from hub.docker.com
 
 ```
 docker pull pasupulaphani/libpostal-docker

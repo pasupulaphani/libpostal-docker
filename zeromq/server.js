@@ -1,22 +1,12 @@
-const zmq = require("zmq");
-const parser = require("node-parser");
+const zerorpc = require("zerorpc");
+const addressParser = require("address-parser");
 
-const responseder = zmq.socket("rep");
+const server = new zerorpc.Server(addressParser);
+
 const port = process.env.PORT || "4242";
+server.bind(`tcp://127.0.0.1:${port}`);
 
-
-// Add a callback for the event that is invoked when we receive a message.
-responseder.on("message", function (method, text) {
-  console.log("Received message: " + message.toString("utf8"));
-
-  return parser[method](text)
-});
-
-responseder.bind(`tcp://127.0.0.1:${port}`, function (error) {
-  if (error) {
-    console.log("Failed to bind socket: " + error.message);
-    process.exit(0);
-  } else {
-    console.log(`Responder bound to port ${port}`);
-  }
+server.on("error", function(error) {
+  console.error("RPC server error:", error);
+  process.exit(0);
 });

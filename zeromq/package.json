@@ -17,10 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash.isequal": "^4.5.0",
-    "lodash.uniqwith": "^4.5.0",
-    "node-parser": "../node-parser",
-    "node-postal": "^0.3.0",
-    "zmq": "^2.15.3"
+    "address-parser": "../address-parser",
+    "zerorpc": "^0.9.6"
   }
 }

@@ -7,6 +7,7 @@ Suggested container resources:
 - 4GB memory
 - downloads ~2GB of training data
 
+
 ## Getting started
 
 - Build locally

@@ -42,4 +42,4 @@ WORKDIR $BASE_DIR/zeromq
 RUN npm install
 
 EXPOSE $PORT
-ENTRYPOINT ["node", "/usr/zerorpc/zeromq/server.js"]
+CMD ["npm", "start"]

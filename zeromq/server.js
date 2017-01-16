@@ -1,9 +1,8 @@
-import zmq from "zmq";
-import libPostalParser from "../libPostalParser"
-import logToConsole from "../libPostalParser/util/log_to_console"
+const zmq = require("zmq");
+const libPostalParser = require("/libPostalParser");
+const logToConsole = require("/libPostalParser/util/log_to_console");
 
-
-const socket = zmq.socket("pull");
+const socket = zmq.socket("req");
 const port = process.ENV.PORT || "4242";
 
 

@@ -1,7 +1,7 @@
-import postal from "node-postal";
-import uniqWith from "lodash.uniqwith";
-import isEqual from "lodash.isequal";
-import isEmpty from "./util/is_empty";
+const postal = require("node-postal");
+const uniqWith = require("lodash.uniqwith");
+const isEqual = require("lodash.isequal");
+const isEmpty = require("./util/is_empty"_;
 
 module.exports = (text) => {
 

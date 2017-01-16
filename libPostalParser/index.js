@@ -1,7 +1,6 @@
-import parse from "./parse";
-import expand from "./expand";
-import expandAndParse from "./expand_and_parse";
-
+const parse = require("./parse");
+const expand = require("./expand");
+const expandAndParse = require("./expand_and_parse");
 
 module.exports = {
   parse: parse,

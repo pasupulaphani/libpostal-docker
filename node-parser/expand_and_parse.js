@@ -1,7 +1,7 @@
 const postal = require("node-postal");
 const uniqWith = require("lodash.uniqwith");
 const isEqual = require("lodash.isequal");
-const isEmpty = require("./util/is_empty"_;
+const isEmpty = require("./util/is_empty");
 
 module.exports = (text) => {
 

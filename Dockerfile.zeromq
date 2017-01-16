@@ -1,0 +1,45 @@
+FROM pasupulaphani/libpostal-docker:latest
+
+MAINTAINER Phaninder <pasupulaphani@gmail.com>
+
+ENV BASE_DIR          /usr/zerorpc
+ENV PORT              4242
+ENV NODE_ENGINE       6.9.4
+
+RUN mkdir -p $BASE_DIR
+VOLUME $BASE_DIR
+
+WORKDIR $BASE_DIR
+ADD . $BASE_DIR
+
+########################################
+# ZeroMQ
+########################################
+RUN apt-get install -y libzmq-dev
+
+####################
+
+
+########################################
+# nodejs
+########################################
+ENV PATH $NODE_PATH/bin/:$PATH
+
+# Create some needed directories
+RUN mkdir -p $NODE_PATH /app/.profile.d
+
+# Install node
+RUN curl -s https://s3pository.heroku.com/node/v$NODE_ENGINE/node-v$NODE_ENGINE-linux-x64.tar.gz | tar --strip-components=1 -xz -C $NODE_PATH
+
+# Export the node path in .profile.d
+RUN echo "export PATH=\"$NODE_PATH/bin:\$PATH\"" > /app/.profile.d/nodejs.sh
+##############
+
+
+WORKDIR $BASE_DIR/zeromq
+
+# Install dependencies: Node bindings for ZeroMQ
+RUN npm install
+
+EXPOSE $PORT
+ENTRYPOINT ["node", "/usr/zerorpc/zeromq/server.js"]

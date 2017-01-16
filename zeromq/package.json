@@ -1,0 +1,22 @@
+{
+  "name": "libpostal-zeromq",
+  "version": "1.0.0",
+  "description": "Provide RPC via zmq",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "zmq",
+    "zeromq",
+    "rpc",
+    "libpostal",
+    "node-postal"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-postal": "^0.3.0"
+  }
+}

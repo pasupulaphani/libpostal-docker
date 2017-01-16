@@ -1,5 +1,5 @@
 {
-  "name": "libpostal-zeromq",
+  "name": "node-zeromq",
   "version": "1.0.0",
   "description": "Provide RPC via zmq",
   "main": "server.js",
@@ -19,6 +19,7 @@
   "dependencies": {
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0",
+    "node-parser": "../node-parser",
     "node-postal": "^0.3.0",
     "zmq": "^2.15.3"
   }

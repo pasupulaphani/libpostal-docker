@@ -1,4 +1,4 @@
-FROM pasupulaphani/libpostal-docker:latest
+FROM pasupulaphani/libpostal-docker:parser_full
 
 MAINTAINER Phaninder <pasupulaphani@gmail.com>
 

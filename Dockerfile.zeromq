@@ -45,6 +45,7 @@ RUN echo "export PATH=\"$NODE_PATH/bin:\$PATH\"" > /app/.profile.d/nodejs.sh
 WORKDIR $BASE_DIR/zeromq
 
 # Install dependencies: Node bindings for ZeroMQ
+RUN if [ -d node_modules ]; then rm -r node_modules; fi
 RUN npm install
 
 EXPOSE $PORT

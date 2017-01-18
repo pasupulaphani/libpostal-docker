@@ -1,5 +1,5 @@
 const zerorpc = require("zerorpc");
-const postal = require("node-postal");
+const addressParser = require("address-parser");
 
 const port = process.env.PORT || "4242";
 const host = process.env.HOST || "0.0.0.0";
@@ -9,8 +9,28 @@ const server = new zerorpc.Server({
 
     let parsed = [];
     try {
-      parsed = postal.parser.parse_address(text);
+      parsed = addressParser.parse(text);
       reply(null, parsed);
+    } catch (e) {
+      reply(e);
+    }
+  },
+  expand: function(text, reply) {
+
+    let expanded = [];
+    try {
+      expanded = addressParser.expand(text);
+      reply(null, expanded);
+    } catch (e) {
+      reply(e);
+    }
+  },
+  expandAndParse: function(text, reply) {
+
+    let result = [];
+    try {
+      result = addressParser.expandAndParse(text);
+      reply(null, result);
     } catch (e) {
       reply(e);
     }

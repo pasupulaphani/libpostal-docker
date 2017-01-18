@@ -21,6 +21,29 @@ client.invoke("parse", "test", function(error, res, more) {
 
   if(!more) {
     console.log("Done.");
-    client.close();
+  }
+});
+
+client.invoke("expand", "test", function(error, res, more) {
+  if(error) {
+    console.error(error);
+  } else {
+    console.log("Replied:", res[0]);
+  }
+
+  if(!more) {
+    console.log("Done.");
+  }
+});
+
+client.invoke("expandAndParse", "test", function(error, res, more) {
+  if(error) {
+    console.error(error);
+  } else {
+    console.log("Replied:", res);
+  }
+
+  if(!more) {
+    console.log("Done.");
   }
 });

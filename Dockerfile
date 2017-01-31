@@ -27,6 +27,6 @@ COPY ./build_libpostal.sh .
 RUN ./build_libpostal.sh
 ##############
 
-WORKDIR /usr/spacy
+WORKDIR $LIBPOSTAL_DIR
 
-CMD ["python3"]
+CMD ["./src/libpostal"]

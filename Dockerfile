@@ -34,7 +34,7 @@ RUN wget https://libpostal.s3.amazonaws.com/mapzen_sample/parser_full.tar.gz
 RUN tar -xvzf parser_full.tar.gz
 RUN ln -s parser_full address_parser
 RUN rm parser_full.tar.gz
-=======
+##############
 
 WORKDIR $LIBPOSTAL_DIR
 

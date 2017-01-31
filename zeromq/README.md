@@ -1,6 +1,6 @@
 # libpostal-zeromq-docker
 
-SpaCy zeromq
+Expose libpostal via Zeromq/ZeroRpc
 
 ## Getting started
 

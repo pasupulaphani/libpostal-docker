@@ -52,7 +52,8 @@ docker build -f Dockerfile.zeromq -t libpostal-zeromq .
 ### Get shell
 
 ```
-docker run -v ${PWD}:/usr/libpostal --publish 4242:4242 --entrypoint=/bin/bash  -it libpostal-zeromq
+docker run -v ${PWD}:/usr/zeromq/zeromq --publish 4242:4242 --entrypoint=/bin/bash  -it libpostal-zeromq
+npm start
 ```
 
 # Troubleshoot

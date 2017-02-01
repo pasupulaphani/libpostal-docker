@@ -1,4 +1,4 @@
-FROM pasupulaphani/libpostal:parser_full
+FROM pasupulaphani/libpostal:latest
 
 MAINTAINER Phaninder <pasupulaphani@gmail.com>
 

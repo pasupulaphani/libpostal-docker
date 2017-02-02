@@ -3,7 +3,6 @@ const addressParser = require("address-parser");
 const debug = require("debug")("libpostal:zeromq");
 
 const port = process.env.PORT || "4242";
-const host = process.env.HOST || "0.0.0.0";
 
 const server = new zerorpc.Server({
   parse: function(text, reply) {
@@ -47,8 +46,8 @@ const server = new zerorpc.Server({
   }
 });
 
-server.bind(`tcp://${host}:${port}`);
-console.log(`Binded to tcp://${host}:${port}`)
+server.bind(`tcp://0.0.0.0:${port}`);
+console.log(`Binded to tcp://0.0.0.0:${port}`)
 
 server.on("error", function(error) {
   console.error("RPC server error:", error);

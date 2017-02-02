@@ -53,7 +53,7 @@ docker build -f Dockerfile.zeromq -t libpostal-zeromq .
 
 ```
 docker run -v ${PWD}:/usr/zeromq -e PORT=4243 --publish 4243:4243 --entrypoint=/bin/bash  -it libpostal-zeromq
-DEBUG=libpostal:zeromq* npm start
+npm start
 ```
 
 # Troubleshoot

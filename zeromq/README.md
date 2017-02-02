@@ -1,4 +1,4 @@
-# libpostal-zeromq-docker
+# libpostal-zeromq
 
 Expose libpostal via Zeromq/ZeroRpc
 

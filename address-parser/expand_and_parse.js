@@ -15,10 +15,5 @@ module.exports = (text) => {
 
   expandAndParsed.unshift(parsed);
 
-  return uniqWith(expandAndParsed, isEqual)
-    .map(p => p
-      .reduce((prev, curr) => {
-        prev[curr.component] = curr.value;
-        return prev;
-      }, {}));
+  return uniqWith(expandAndParsed, isEqual);
 };

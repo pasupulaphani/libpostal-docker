@@ -48,17 +48,57 @@ Expose libpostal via Zeromq/ZeroRpc
 docker build -f Dockerfile.zeromq -t libpostal-zeromq .
 ```
 
+- (OR) Get latest from hub.docker.com
 
-### Get shell
+```
+docker pull pasupulaphani/libpostal-zeromq
+```
 
+
+### Start server
+
+```
+docker run --publish 4242:4242 -it libpostal-zeromq
+```
+
+
+### API
+
+###### parse
+```
+$ zerorpc  tcp://0.0.0.0:4242 parse "hastings, uk"
+
+[{'component': 'house', 'value': 'hastings uk'}]
+```
+
+###### expand
+```
+$ zerorpc  tcp://0.0.0.0:4242 expand "wardour st, uk"
+
+['wardour street uk', 'wardour saint uk']
+```
+
+
+###### expandAndPrse
+```
+$ zerorpc  tcp://0.0.0.0:4242 expandAndPrse "wardour st, uk"
+
+[{'country': 'uk', 'road': 'wardour st'},
+ {'city': 'uk', 'road': 'wardour street'},
+ {'house': 'wardour saint uk'}]
+```
+
+
+# Troubleshoot
+
+***Get Shell***
 ```
 docker run -v ${PWD}:/usr/zeromq -e PORT=4243 --publish 4243:4243 --entrypoint=/bin/bash  -it libpostal-zeromq
 npm start
 ```
 
-# Troubleshoot
 
-Check if port is open
+***Check if port is open***
 
 ```
 if ! nc -z 0.0.0.0 4242 2>&1 >/dev/null; then echo "NOT AVAILABLE"; fi

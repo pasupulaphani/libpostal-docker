@@ -24,7 +24,7 @@ const server = new zerorpc.Server({
     let expanded = [];
     try {
       expanded = addressParser.expand(text);
-      debug("expand: text -", text, ",expanded -", parsed);
+      debug("expand: text -", text, ",expanded -", expanded);
       reply(null, expanded);
     } catch (e) {
       debug(e);

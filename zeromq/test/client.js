@@ -1,3 +1,4 @@
+const assert = require("assert");
 const zerorpc = require("zerorpc");
 
 const client = new zerorpc.Client();
@@ -12,38 +13,90 @@ client.on("error", function(error) {
   console.error("RPC client error:", error);
 });
 
-client.invoke("parse", "test", function(error, res, more) {
-  if(error) {
-    console.error(error);
-  } else {
-    console.log("Replied:", res[0].value);
+
+describe('parse', function() {
+  const data = {
+    input: "the book club, london",
+    expected: [
+      {"component": "house", "value": "the book club"},
+      {"component": "city", "value": "london"}
+    ]
   }
 
-  if(!more) {
-    console.log("Done.");
-  }
+  it('should parse address', function(done) {
+
+    client.invoke("parse", data.input, function(error, res, more) {
+      if(error) {
+        console.error(error);
+        throw error;
+      } else {
+        console.log("Replied:", res);
+
+        assert.deepEqual(res, data.expected);
+      }
+
+      if(!more) {
+        console.log("Done.");
+        done();
+      }
+    });
+  });
 });
 
-client.invoke("expand", "test", function(error, res, more) {
-  if(error) {
-    console.error(error);
-  } else {
-    console.log("Replied:", res[0]);
+
+describe('expand', function() {
+  const data = {
+    input: "wardour st, uk",
+    expected: [ "wardour street uk", "wardour saint uk" ]
   }
 
-  if(!more) {
-    console.log("Done.");
-  }
+  it('should expand address', function(done) {
+
+    client.invoke("expand", data.input, function(error, res, more) {
+      if(error) {
+        console.error(error);
+        throw error;
+      } else {
+        console.log("Replied:", res);
+
+        assert.deepEqual(res, data.expected);
+      }
+
+      if(!more) {
+        console.log("Done.");
+        done();
+      }
+    });
+  });
 });
 
-client.invoke("expandAndParse", "test", function(error, res, more) {
-  if(error) {
-    console.error(error);
-  } else {
-    console.log("Replied:", res);
+
+describe('expandAndParse', function() {
+  const data = {
+    input: "wardour st, uk",
+    expected: [
+      {"country": "uk", "road": "wardour st"},
+      {"city": "uk", "road": "wardour street"},
+      {"house": "wardour saint uk"}
+    ]
   }
 
-  if(!more) {
-    console.log("Done.");
-  }
+  it('should expandAndParse address', function(done) {
+
+    client.invoke("expandAndParse", data.input, function(error, res, more) {
+      if(error) {
+        console.error(error);
+        throw error;
+      } else {
+        console.log("Replied:", res);
+
+        assert.deepEqual(res, data.expected);
+      }
+
+      if(!more) {
+        console.log("Done.");
+        done();
+      }
+    });
+  });
 });

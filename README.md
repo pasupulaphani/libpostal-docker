@@ -66,9 +66,10 @@ docker run --publish 4242:4242 -it libpostal-zeromq
 
 ###### parse
 ```
-$ zerorpc  tcp://0.0.0.0:4242 parse "hastings, uk"
+$ zerorpc  tcp://0.0.0.0:4242 parse "the book club, london"
 
-[{'component': 'house', 'value': 'hastings uk'}]
+[{'component': 'house', 'value': 'the book club'},
+ {'component': 'city', 'value': 'london'}]
 ```
 
 ###### expand

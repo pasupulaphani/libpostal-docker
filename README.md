@@ -38,7 +38,7 @@ docker run -it libpostal /bin/bash
 
 # libpostal-zeromq
 
-Expose libpostal via Zeromq/ZeroRpc
+Expose libpostal via Zeromq/ZeroRpc. This calls NodeJS Libpostal bindings (node-postal) via zerorpc.
 
 ## Getting started
 

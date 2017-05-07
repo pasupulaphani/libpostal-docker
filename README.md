@@ -1,6 +1,6 @@
 # libpostal
 
-libpostal (https://github.com/openvenues/libpostal) is a C library for parsing and normalizing street addresses.
+libpostal latest - v1.0.0 (https://github.com/openvenues/libpostal) is a C library for parsing and normalizing street addresses.
 
 Suggested container resources:
 

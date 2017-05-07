@@ -80,9 +80,9 @@ $ zerorpc  tcp://0.0.0.0:4242 expand "wardour st, uk"
 ```
 
 
-##### expandAndPrse
+##### expandAndParse
 ```
-$ zerorpc  tcp://0.0.0.0:4242 expandAndPrse "wardour st, uk"
+$ zerorpc  tcp://0.0.0.0:4242 expandAndParse "wardour st, uk"
 
 [{'country': 'uk', 'road': 'wardour st'},
  {'city': 'uk', 'road': 'wardour street'},

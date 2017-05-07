@@ -5,7 +5,6 @@ MAINTAINER Phaninder "hello@phaninder.com"
 
 ENV DEBIAN_FRONTEND     noninteractive
 ENV LIBPOSTAL_DIR       /opt/libpostal
-ENV LIBPOSTAL_VERSION   v1.0.0
 ENV LIBPOSTAL_DATA_DIR  /opt/libpostal_data
 
 
@@ -22,9 +21,7 @@ RUN apt-get update && apt-get -qq update && apt-get install -y --force-yes \
   pkg-config \
   git
 
-RUN wget https://github.com/openvenues/libpostal/archive/$LIBPOSTAL_VERSION.tar.gz
-RUN mkdir -p $LIBPOSTAL_DIR
-RUN tar -xvzf $LIBPOSTAL_VERSION.tar.gz -C $LIBPOSTAL_DIR --strip 1
+RUN git clone https://github.com/openvenues/libpostal $LIBPOSTAL_DIR
 WORKDIR $LIBPOSTAL_DIR
 COPY ./build_libpostal.sh .
 RUN ./build_libpostal.sh

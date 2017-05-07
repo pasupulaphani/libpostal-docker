@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "address-parser": "../address-parser",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0",
-    "address-parser": "../address-parser",
-    "node-postal": "^1.0.0"
+    "node-postal": "github:openvenues/node-postal"
   },
   "devDependencies": {
     "mocha": "^3.3.0"

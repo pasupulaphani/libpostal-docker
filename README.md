@@ -60,6 +60,12 @@ docker pull pasupulaphani/libpostal-zeromq
 ```
 docker run --publish 4242:4242 -it libpostal-zeromq
 ```
+- (OR) Start manually
+
+```
+docker run -v ${PWD}:/usr/zeromq --publish 4242:4242 --entrypoint=/bin/bash  -it libpostal-zeromq
+npm start
+```
 
 
 ### API

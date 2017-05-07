@@ -5,7 +5,8 @@ const debug = require("debug")("libpostal:zeromq");
 const port = process.env.PORT || "4242";
 
 const server = new zerorpc.Server({
-  parse: function(text, reply) {
+  parse: function(bytes, reply) {
+    const text = new Buffer(bytes).toString('utf8');
     debug("parse: text -", text);
 
     let parsed = [];
@@ -18,7 +19,8 @@ const server = new zerorpc.Server({
       reply(e);
     }
   },
-  expand: function(text, reply) {
+  expand: function(bytes, reply) {
+    const text = new Buffer(bytes).toString('utf8');
     debug("expand: text -", text);
 
     let expanded = [];
@@ -31,7 +33,8 @@ const server = new zerorpc.Server({
       reply(e);
     }
   },
-  expandAndParse: function(text, reply) {
+  expandAndParse: function(bytes, reply) {
+    const text = new Buffer(bytes).toString('utf8');
     debug("expandAndParse: text -", text);
 
     let result = [];

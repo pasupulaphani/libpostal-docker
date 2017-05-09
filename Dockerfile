@@ -26,6 +26,7 @@ RUN wget https://github.com/openvenues/libpostal/archive/$LIBPOSTAL_VERSION.tar.
 RUN mkdir -p $LIBPOSTAL_DIR
 RUN tar -xvzf $LIBPOSTAL_VERSION.tar.gz -C $LIBPOSTAL_DIR --strip 1
 WORKDIR $LIBPOSTAL_DIR
+RUN git checkout parser-data
 COPY ./build_libpostal.sh .
 RUN ./build_libpostal.sh
 ##############
